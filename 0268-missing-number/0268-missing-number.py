@@ -1,16 +1,17 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-#         n = len(nums)+1
-#         checkList = []
+        tmp = []
+        idx = 0
         
-#         for idx in range(n):
-#             checkList.append(idx)
-            
-#         for elm in range(len(checkList)):
-#             if checkList[elm] not in nums:
-#                 return checkList[elm]
-        total = sum(range(len(nums)+1))
-        theNum = total-sum(nums)
+        for idx in range(len(nums)+1):
+            tmp.append(idx)
         
-        return theNum
+        temp = set(tmp)
+        ans = set(nums)
+        
+        answer = temp.difference(ans)
+        anss = list(answer)
+        theAns = anss[0]
+        
+        return theAns
         
