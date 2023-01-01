@@ -1,17 +1,23 @@
 class Solution:
     #121
     def isPalindrome(self, x: int) -> bool:
-        if x < 0 or x % 10 == 0 and x != 0:
+        if x<0:
             return False
-        else:
-            otherHalf = 0
-            
-            while x > otherHalf:
-                otherHalf = (otherHalf*10) + x%10
-                x//=10
-                    
-            if otherHalf == x or x == otherHalf//10:
+        elif x<=9:
+            return True
+        
+        pal = str(x)
+        left = 0
+        right = len(pal)-1
+        
+        while left<=right:
+            if left == right:
                 return True
-            else:
+            elif pal[left]==pal[right]:
+                    left+=1
+                    right-=1
+            elif pal[left]!=pal[right]:
                 return False
-                
+            
+        return True
+                    
