@@ -4,19 +4,16 @@ class Solution:
         answer = []
         
         while ptr < len(s):
-            letter = ""
             
-            if ptr+2 <= len(s)-1 and s[ptr+2] == "#":
-                letter = int(s[ptr:ptr+2]) + 96
-                
+            if ptr+2 < len(s) and s[ptr+2] == "#":
+                answer.append(chr(int(s[ptr:ptr+2]) + 96))
+
                 ptr+=3
             else:
-                letter = int(s[ptr]) + 96
+                answer.append(chr(int(s[ptr]) + 96))
                 
                 ptr+=1
-            
-            answer.append(chr(letter))
-        
+                    
         # answer.reverse()
         
         return "".join(answer)
