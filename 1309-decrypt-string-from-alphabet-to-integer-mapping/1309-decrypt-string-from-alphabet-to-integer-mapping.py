@@ -1,23 +1,23 @@
 class Solution:
     def freqAlphabets(self, s: str) -> str:
-        ptr = len(s)-1
+        ptr = 0
         answer = []
         
-        while ptr >= 0:
+        while ptr < len(s):
             letter = ""
             
-            if s[ptr] == "#":
-                letter = int(s[ptr-2:ptr]) + 96
+            if ptr+2 <= len(s)-1 and s[ptr+2] == "#":
+                letter = int(s[ptr:ptr+2]) + 96
                 
-                ptr-=3
+                ptr+=3
             else:
                 letter = int(s[ptr]) + 96
                 
-                ptr-=1
+                ptr+=1
             
             answer.append(chr(letter))
         
-        answer.reverse()
+        # answer.reverse()
         
         return "".join(answer)
 
