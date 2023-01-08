@@ -1,14 +1,21 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        xor_str = 0
+        sDict = defaultdict()
+        tDict = defaultdict()
         
-        for s_xor in s:
-            xor_str ^= ord(s_xor)
+        for lets in s:
+            if lets in sDict.keys():
+                sDict[lets]+=1
+            else:
+                sDict[lets]=1
         
-        for t_xor in t:
-            xor_str ^= ord(t_xor)
+        for lett in t:
+            if lett in tDict.keys():
+                tDict[lett]+=1
+            else:
+                tDict[lett]=1
         
-        return chr(xor_str)
-                    
-                
-                
+        for key in tDict:
+            if key not in sDict.keys() or tDict[key]>sDict[key]:
+                return key
+        
