@@ -1,7 +1,7 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        sDict = dict()
-        tDict = dict()
+        sDict = defaultdict()
+        tDict = defaultdict()
         
         for lets in s:
             if lets in sDict.keys():
