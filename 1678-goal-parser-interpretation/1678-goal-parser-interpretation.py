@@ -1,20 +1,20 @@
 class Solution:
     def interpret(self, command: str) -> str:
-        result = []
+        result = ""
         letter = 0
         
         while letter < len(command):
             if command[letter] == "G":
-                result.append("G")
+                result+="G"
                 letter += 1
             elif command[letter] == "(" and command[letter+1] == ")":
-                result.append("o")
+                result+="o"
                 letter += 2
             else:
-                result.append("al")
+                result+="al"
                 letter+=4
         
-        return "".join(result)
+        return result
         
         
         
