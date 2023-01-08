@@ -4,10 +4,10 @@ class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         alphabets = dict()
         # value = 0
-        orderList = list(order)
+        # orderList = list(order)
         
-        for letter in orderList:
-            alphabets[letter] = orderList.index(letter)
+        for letter in order:
+            alphabets[letter] = order.index(letter)
             # value+=1
             
         idx1 = 0
