@@ -1,5 +1,7 @@
 class Solution:
     def interpret(self, command: str) -> str:
+#         For better space complexity it's better to use list instead of string for result
+#         For better speed string is better as a result, because it reduces the cost of changing from list to string
         result = ""
         letter = 0
         
