@@ -9,23 +9,23 @@ class Solution:
             winIdx = matches[players][0]
             lossIdx = matches[players][1]
             
-            if winIdx not in playerPoints.keys():
+            if winIdx not in playerPoints:
                 playerPoints[winIdx] = 0
+                
+#             If i insert the elif below, it'll skip the loss test as well
             # elif playerPoints[winIdx] == 0:
             #     continue
             
-            if lossIdx not in playerPoints.keys():
+            if lossIdx not in playerPoints:
                 playerPoints[lossIdx] = 1
             elif playerPoints[lossIdx] >= 0:
                 playerPoints[lossIdx] += 1
         
-        for result in playerPoints.keys():
+        for result in playerPoints:
             if playerPoints[result] == 0:
                 wins.append(result)
             elif playerPoints[result] == 1:
                 losses.append(result)
-            else:
-                continue
         
         wins.sort()
         losses.sort()
