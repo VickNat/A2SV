@@ -5,9 +5,9 @@ class Solution:
         losses = []
         answer = []
         
-        for players in range(len(matches)):
-            winIdx = matches[players][0]
-            lossIdx = matches[players][1]
+        for players in matches:
+            winIdx = players[0]
+            lossIdx = players[1]
             
             if winIdx not in playerPoints:
                 playerPoints[winIdx] = 0
