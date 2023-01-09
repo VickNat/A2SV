@@ -5,6 +5,8 @@ class Solution:
         losses = []
         answer = []
         
+#         using range function in for loops uses less memory
+        
         for players in matches:
             winIdx = players[0]
             lossIdx = players[1]
