@@ -11,6 +11,7 @@ class Solution:
         for letterIdx in range(maxLength):
             temp = []
             
+#             To add the letters vertically
             for words in range(len(listOfS)):
                 if letterIdx >= len(listOfS[words]):
                     temp.append(" ")
@@ -19,6 +20,7 @@ class Solution:
                 
             spaceCheck = len(temp)-1
             
+#             To remove last elements of space
             while spaceCheck >= 0 and temp[spaceCheck] == " ":
                 temp.pop()
                 spaceCheck = len(temp)-1
