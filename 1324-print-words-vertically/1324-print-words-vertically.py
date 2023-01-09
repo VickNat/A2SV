@@ -2,8 +2,9 @@ class Solution:
     def printVertically(self, s: str) -> List[str]:
         maxLength = 0
         listOfS = list(s.split(" "))
-        answer = []
+        verticalPrint = []
         
+#         Max Length is needed to iterate through each word till the maximum word length is reached
         for word in listOfS:
             maxLength = max(maxLength, len(word))
         
@@ -13,7 +14,7 @@ class Solution:
             for words in range(len(listOfS)):
                 if letterIdx >= len(listOfS[words]):
                     temp.append(" ")
-                elif letterIdx < len(listOfS[words]):
+                else:
                     temp.append(listOfS[words][letterIdx])
                 
             spaceCheck = len(temp)-1
@@ -22,6 +23,6 @@ class Solution:
                 temp.pop()
                 spaceCheck = len(temp)-1
             
-            answer.append("".join(temp))
+            verticalPrint.append("".join(temp))
         
-        return answer
+        return verticalPrint
