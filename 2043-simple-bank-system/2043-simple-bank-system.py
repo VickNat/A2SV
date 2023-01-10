@@ -2,7 +2,7 @@ class Bank:
     Balance = []
     
     def __init__(self, balance: List[int]):
-        self.Balance = balance[:]
+        self.Balance = balance
 
     def transfer(self, account1: int, account2: int, money: int) -> bool:
         if account1 - 1 >= len(self.Balance) or account2 - 1 >= len(self.Balance):
