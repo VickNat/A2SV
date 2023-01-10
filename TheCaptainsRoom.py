@@ -1,19 +1,15 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-familySize = int(input())
+k_group = input()
+room_nums = list(map(int, input().split()))
+groups = set()
+captain = set()
 
-roomNums = list(map(int, input().split()))
-families = dict()
-captain = 0
+for idx in room_nums:
+    if idx not in groups:
+        groups.add(idx)
+        captain.add(idx)
+    else:
+        captain.discard(idx)
 
-for fam in roomNums:
-    if fam not in families.keys():
-        families[fam] = 1
-    elif fam in families.keys():
-        families[fam] += 1
-
-for cap in families.keys():
-    if families[cap] == 1:
-        captain = cap
-        break
-
-print(captain)
+captain = list(captain)
+print(captain[0])
