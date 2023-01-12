@@ -11,9 +11,8 @@ class Solution(object):
             if nums[numPtr] != 0:
                 nums[zeroPtr], nums[numPtr] = nums[numPtr], nums[zeroPtr]
                 zeroPtr += 1
-                numPtr += 1
-            else:
-                numPtr += 1
+            
+            numPtr += 1
                 
                 
         
