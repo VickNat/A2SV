@@ -10,16 +10,13 @@ class Solution:
                 back += 2
         
         zeroPtr = 0
-        numPtr = 0
         
-        while numPtr < len(nums):
+        for numPtr in range(len(nums)):
             if nums[numPtr] != 0:
                 nums[numPtr], nums[zeroPtr] = nums[zeroPtr], nums[numPtr]
                 
                 zeroPtr += 1
-            
-            numPtr += 1
-        
+                    
         return nums
         
         
