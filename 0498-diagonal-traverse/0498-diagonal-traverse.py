@@ -15,8 +15,10 @@ class Solution:
                     row -= 1
                     col += 1
                 
+#                 to take row back in range of rows
                 row += 1
                 
+#                 in the case that col is out of range
                 if col >= cols:
                     col -= 1
                     row += 1
@@ -28,13 +30,14 @@ class Solution:
                     row += 1
                     col -= 1
                 
-                # row -= 1
                 col += 1
                 
+#                 Same case as the rows situation
                 if row >= rows:
                     row -= 1
                     col += 1
             
+#             update the main iteration
             idx += 1
             
         return diagonalMat
