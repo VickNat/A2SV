@@ -6,3 +6,18 @@ class Solution:
                     return False
             
         return True
+        
+        
+        
+        
+        
+        
+        
+        
+#         for col in range(len(matrix)):
+#             for row in range(len(matrix)-1):
+#                 for r in range(row+1, len(matrix)):
+#                     if matrix[row][col] != matrix[r][row]:
+#                         return False
+            
+#         return True
