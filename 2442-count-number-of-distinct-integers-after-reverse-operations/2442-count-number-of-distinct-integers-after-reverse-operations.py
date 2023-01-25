@@ -7,10 +7,7 @@ class Solution:
             temp = 0
             
             while num != 0:
-                if temp == 0:
-                    temp += num%10
-                else:
-                    temp = (temp*10) + num%10
+                temp = (temp*10) + num%10
                     
                 num //= 10
             
