@@ -5,7 +5,9 @@ class Solution:
         right = len(height) - 1
         
         while left < right:
-            container = (min(height[right], height[left])) * (right-left)
+            minHeight = min(height[right], height[left])
+            width = right-left
+            container = (minHeight * width)
             
             waterAmount = max(waterAmount, container)
             
