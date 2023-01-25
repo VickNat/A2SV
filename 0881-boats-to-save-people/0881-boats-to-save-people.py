@@ -12,10 +12,7 @@ class Solution:
             elif people[left] + people[right] <= limit:
                 left += 1
                 right -= 1
-            else:
-                boats += 1
-                break
-            
+    
             boats += 1
         
         return boats
