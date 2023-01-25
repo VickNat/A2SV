@@ -13,13 +13,13 @@ class Solution:
                 nums1.pop()
             elif nums1[ptr1] <= nums2[ptr2]:
                 ptr1 += 1
-                # continue
+                continue
             else:
                 nums1.insert(ptr1, nums2[ptr2])
                 ptr2 += 1
                 nums1.pop()
             
-            # ptr1 += 1
+            ptr1 += 1
         
         return nums1
         
