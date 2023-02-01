@@ -11,7 +11,6 @@ class MyLinkedList:
         return None
 
     def get(self, index: int) -> int:
-        # curVal = Node()
         curVal = self.headVal
         idxCounts = 0
         
@@ -20,7 +19,6 @@ class MyLinkedList:
         
         while curVal.next is not None:
             if idxCounts == index:
-                # curVal = curVal.next
                 break
             
             curVal = curVal.next
@@ -37,7 +35,6 @@ class MyLinkedList:
         
         if self.headVal is None:
             self.headVal = addVal
-            # self.headVal.next = None
         else:
             addVal.next = self.headVal
         
@@ -52,7 +49,6 @@ class MyLinkedList:
         if self.headVal is None:
             self.headVal = addTail
         else:
-            # curVal = self.headVal
             
             while curVal.next is not None:
                 curVal = curVal.next
@@ -117,12 +113,10 @@ class MyLinkedList:
             if curVal.next.next is None:
                 curVal.next = None
             else:
-                # temp = Node()
                 temp = curVal.next
                 curVal.next = curVal.next.next
                 temp.next = None
                     
-                # return
             
             
 
