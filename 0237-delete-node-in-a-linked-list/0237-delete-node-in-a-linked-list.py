@@ -12,11 +12,10 @@ class Solution:
         """
         node.val = node.next.val
         
-        delNode = node.next
+        # delNode = node.next
         
-        tempNode = delNode.next
-        delNode.next = None
+        node.next = node.next.next
         
-        node.next = tempNode
+        # node.next = tempNode
         
         
