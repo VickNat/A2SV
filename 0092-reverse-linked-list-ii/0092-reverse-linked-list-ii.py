@@ -14,15 +14,13 @@ class Solution:
         while idx != left:
             pNode = curNode
             curNode = curNode.next
-            nNode = curNode.next
 
             idx += 1
 
         lHead = pNode
         lTail = curNode
-            
-        if nNode is None:
-            nNode = curNode.next
+        
+        nNode = curNode.next
 
         while idx < right:
                     
