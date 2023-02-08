@@ -5,42 +5,82 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head:
-            pNode = None
-            curNode = head
-            nNode = None
+        dummy = ListNode
+        dummy.next = head
+        pNode = dummy
+        
+        while head and head.next:
+            if head and head.val == head.next.val:
+                while head.next and head.val == head.next.val:
+                    head = head.next
+
+                head = head.next
+                pNode.next = head
+
+            else:
+                pNode = pNode.next
+                head = head.next
             
-            while curNode:
-                nNode = curNode.next
+        return dummy.next
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+#         if head:
+#             pNode = None
+#             curNode = head
+#             nNode = None
+            
+#             while curNode:
+#                 nNode = curNode.next
                 
-                if nNode:
-                    if curNode.val != nNode.val:
-                        pNode = curNode
-                        curNode = nNode
-                        nNode = curNode.next
+#                 if nNode:
+#                     if curNode.val != nNode.val:
+#                         pNode = curNode
+#                         curNode = nNode
+#                         nNode = curNode.next
                         
-                    elif curNode.val == nNode.val:
-                        while nNode is not None and nNode.val == curNode.val:
-                            nNode = nNode.next
+#                     elif curNode.val == nNode.val:
+#                         while nNode is not None and nNode.val == curNode.val:
+#                             nNode = nNode.next
                         
-                        if curNode == head:
-                            curNode = nNode
-                            head = curNode
-                        else:
-                            curNode = nNode
+#                         if curNode == head:
+#                             curNode = nNode
+#                             head = curNode
+#                         else:
+#                             curNode = nNode
                         
-                        if curNode:
-                            nNode = curNode.next
+#                         if curNode:
+#                             nNode = curNode.next
                             
-                        if pNode:
-                            pNode.next = curNode
-                else:
-                    if pNode:
-                        pNode.next = curNode
-                        
-                    curNode = curNode.next
+#                         if pNode:
+#                             pNode.next = curNode
+#                 else:
+#                     if pNode:
+#                         pNode.next = curNode
+                    
+#                     curNode = curNode.next
                 
-        return head
+#         return head
                         
                         
                         
