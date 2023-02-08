@@ -10,7 +10,7 @@ class Solution:
         pNode = dummy
         
         while head and head.next:
-            if head and head.val == head.next.val:
+            if head.val == head.next.val:
                 while head.next and head.val == head.next.val:
                     head = head.next
 
