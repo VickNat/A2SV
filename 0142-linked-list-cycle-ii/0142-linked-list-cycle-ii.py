@@ -6,18 +6,26 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        nodeDict = defaultdict(int)
-        curNode = head
+        fastPtr = head
+        slowPtr = head
+        meetPtr = head
         
-        while curNode:
-            nodeDict[curNode] += 1
+        while fastPtr and fastPtr.next and slowPtr:
             
-            if nodeDict[curNode] > 1:
+            fastPtr = fastPtr.next.next
+            slowPtr = slowPtr.next
+            
+            if fastPtr == slowPtr:
+                break
+        
+        while meetPtr and fastPtr:
+            if meetPtr == fastPtr:
                 break
             
-            curNode = curNode.next
+            fastPtr = fastPtr.next
+            meetPtr = meetPtr.next
         
-        if curNode:
-            return curNode
-        else:
-            return None
+        if fastPtr and meetPtr == fastPtr and fastPtr.next:
+            return meetPtr
+        
+        return None
