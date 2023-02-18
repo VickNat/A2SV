@@ -5,8 +5,7 @@ class Solution:
         """
         size = len(nums)
         
-        while k > size:
-            k %= size
+        k %= size
         
         counts = 0
         rotate = size - 1
