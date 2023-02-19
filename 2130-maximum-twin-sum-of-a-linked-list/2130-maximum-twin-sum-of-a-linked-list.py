@@ -9,13 +9,13 @@ class Solution:
         temp = head
         curNode = head
         twinSum = 0
-        
+        twinNode = head
+
         while temp:
             temp = temp.next
             size += 1
         
         half = (size/2)
-        twinNode = head
         h = 0
         
         while h < half-1:
@@ -37,9 +37,7 @@ class Solution:
             cNode = nNode
         
         twinNode = pNode
-        
-        # print(twinNode)
-        
+                
         while curNode:
             sums = curNode.val + twinNode.val
             twinSum = max(twinSum, sums)
