@@ -1,6 +1,6 @@
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
-        counts = n
+        friendsLeft = n
         friends = []
         
         for friend in range(1, n+1):
@@ -9,7 +9,7 @@ class Solution:
         idx = 0
         jumps = 1
 
-        while counts > 1:
+        while friendsLeft > 1:
             
             if idx >= n:
                 idx = 0
@@ -20,20 +20,16 @@ class Solution:
                 
             if jumps == k:
                 friends[idx] = -1
-                counts -= 1
+                friendsLeft -= 1
                 jumps = 1
             elif jumps != k:
                 jumps += 1
             
             idx += 1
-                    
-            
-        winner = 0
-        
+                            
         for fr in friends:
             if fr != -1:
-                winner = fr
+                return fr
         
-        return winner
                 
                 
