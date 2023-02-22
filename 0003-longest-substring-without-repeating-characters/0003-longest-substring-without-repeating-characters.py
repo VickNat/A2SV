@@ -6,15 +6,16 @@ class Solution:
         size = 0
         
         while right < len(s):
-            if s[right] in ans:
+            if s[right] not in ans:
+                ans.add(s[right])
+                right += 1
+            else:
                 while s[right] in ans:
                     ans.remove(s[left])
                     left += 1
-                
-            ans.add(s[right])                
                     
             size = max(size, len(ans))
             
-            right += 1
+            
         
         return size
