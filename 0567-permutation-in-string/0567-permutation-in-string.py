@@ -13,9 +13,9 @@ class Solution:
             perm[s2[end]] += 1
                 
             if end - start + 1 > size:
-                if perm[s2[start]] > 1:
-                    perm[s2[start]] -= 1
-                elif perm[s2[start]] <= 1:
+                perm[s2[start]] -= 1
+                
+                if perm[s2[start]] == 0:
                     del perm[s2[start]]
                     
                 start += 1
