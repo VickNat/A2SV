@@ -14,6 +14,9 @@ class Solution:
                 repeat[s[start]] -= 1
                 start += 1
                 
+                if repeat[s[start]] == 0:
+                    repeat.pop(s[start])
+                
             maxLength = max(maxLength, end - start + 1)
         
         return maxLength
