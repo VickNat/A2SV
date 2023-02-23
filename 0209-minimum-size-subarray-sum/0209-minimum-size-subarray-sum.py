@@ -8,18 +8,11 @@ class Solution:
         for end in range(len(nums)):
             sums += nums[end]  
             
-            if sums >= target:
-                minLen = min(minLen, end - start + 1)
-                
-                while sums > target and start < end:
+            if sums >= target:                            
+                while sums >= target and start <= end:
+                    minLen = min(minLen, end - start + 1)
                     sums -= nums[start]
-                    start += 1
-                
-                if sums < target:
-                    start -= 1
-                    sums += nums[start]
-                
-                minLen = min(minLen, end - start + 1)
+                    start += 1 
                                 
         if minLen == float('inf'):
             minLen = 0
