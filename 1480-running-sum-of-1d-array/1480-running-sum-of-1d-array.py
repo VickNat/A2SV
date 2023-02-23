@@ -3,5 +3,5 @@ class Solution:
         
         for idx in range(1, len(nums)):
             nums[idx] += nums[idx - 1]
-        
+            
         return nums
