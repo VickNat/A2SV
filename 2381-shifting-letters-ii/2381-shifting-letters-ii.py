@@ -7,14 +7,12 @@ class Solution:
         for idx in range(length):
             asciiVal.append(ord(s[idx]))
         
-        for shift in shifts:
-            l = shift[0]
-            r = shift[1]
-            direct = 1
-            
-            if shift[2] == 0:
+        for l, r, direct in shifts:
+            if direct == 0:
                 direct = -1
+                
             prefixSum[l] += direct
+            
             if r + 1 < length:
                 prefixSum[r+1] -= direct
         
