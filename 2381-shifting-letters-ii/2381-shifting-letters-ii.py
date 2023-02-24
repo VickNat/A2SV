@@ -22,10 +22,7 @@ class Solution:
             asciiVal[idx] += prefixSum[idx]%26
             
             if asciiVal[idx] > 122:
-                asciiVal[idx] = (96 + (asciiVal[idx] - 122)%26)
-            # elif asciiVal[idx] < 97:
-            #     asciiVal[idx] = (123 - (97 - asciiVal[idx])%26) 
-                
+                asciiVal[idx] = (96 + (asciiVal[idx] - 122))
             
             asciiVal[idx] = chr(asciiVal[idx])
         
