@@ -35,11 +35,8 @@ class Solution:
                     left += 1
                 else:
                     break
-                
-        if len(ans) == 0:
-            return ""
         
-        return s[ans[0] : ans[1]+1]
+        return s[ans[0] : ans[1]+1] if len(ans) > 0 else ""
             
             
                     
