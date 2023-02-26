@@ -23,14 +23,11 @@ class Solution:
                         break
                 
                 if flag == True:
-                    temp = []
-                    temp.append(left)
-                    temp.append(right)
+                    temp = [left, right]
                     
-                    if len(ans) == 0:
-                        ans.append(temp)
-                    elif (ans[-1][1] - ans[-1][0]) + 1 > right - left + 1:
-                        ans.append(temp)
+                    if len(ans) == 0 or ans[1] - ans[0] + 1 > right - left + 1:
+                        ans.clear()
+                        ans.extend(temp)
                     
                     if s[left] in sDict:
                         sDict[s[left]] -= 1
@@ -41,8 +38,8 @@ class Solution:
                 
         if len(ans) == 0:
             return ""
-        else:
-            return s[ans[-1][0] : ans[-1][1]+1]
+        
+        return s[ans[0] : ans[1]+1]
             
             
                     
