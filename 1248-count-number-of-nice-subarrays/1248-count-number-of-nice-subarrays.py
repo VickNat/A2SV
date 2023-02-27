@@ -17,8 +17,7 @@ class Solution:
         oddDict[odds[-1]] += 1
         
         for idx in range(length + 1):
-            if odds[idx] - k in oddDict:
-                score += oddDict[odds[idx] - k]
+            score += oddDict[odds[idx] - k]
         
         return score
         
