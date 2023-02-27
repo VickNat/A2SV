@@ -4,18 +4,16 @@ class Solution:
         length = len(nums)
         subArr = 0
         sums = 0
-        prefixSum = [0]
         
         divDict[0] += 1
         
         for idx in range(length):
-            prefixSum.append(sums+nums[idx])
             sums += nums[idx]
             
-            if prefixSum[idx+1]%k in divDict:
-                subArr += divDict[prefixSum[idx+1]%k]
+            if sums%k in divDict:
+                subArr += divDict[sums%k]
                 
-            divDict[prefixSum[idx+1]%k] += 1
+            divDict[sums%k] += 1
                     
                 
         return subArr
