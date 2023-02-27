@@ -6,16 +6,16 @@ class Solution:
         sums = 0
         prefixSum = [0]
         
+        divDict[0] += 1
+        
         for idx in range(length):
             prefixSum.append(sums+nums[idx])
             sums += nums[idx]
-        
-        divDict[0] += 1
-        
-        for idx in range(1, length + 1):
-            if prefixSum[idx]%k in divDict:
-                subArr += divDict[prefixSum[idx]%k]
+            
+            if prefixSum[idx+1]%k in divDict:
+                subArr += divDict[prefixSum[idx+1]%k]
                 
-            divDict[prefixSum[idx]%k] += 1
+            divDict[prefixSum[idx+1]%k] += 1
+                    
                 
         return subArr
