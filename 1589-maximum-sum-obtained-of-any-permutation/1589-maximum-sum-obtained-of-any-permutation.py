@@ -9,9 +9,7 @@ class Solution:
         
         sums = 0
 
-        for idx in range(num_length+1):
-            prefixSum[idx] += sums
-            sums = prefixSum[idx]
+        prefixSum = list(accumulate(prefixSum))
         
         prefixSum.pop()
         prefixSum.sort()
