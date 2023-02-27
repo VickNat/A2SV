@@ -5,14 +5,14 @@ class Solution:
         for elm in trips:
             distance = max(distance, elm[-1])
         
-        prefixSum = [0]*(distance+1)
+        prefixSum = [0]*(distance+2)
         sums = 0
         
         for elm in trips:
-            prefixSum[elm[1]] += elm[0]
-            prefixSum[elm[2]] -= elm[0]
+            prefixSum[elm[1]+1] += elm[0]
+            prefixSum[elm[2]+1] -= elm[0]
         
-        for idx in range(len(prefixSum)):
+        for idx in range(1, len(prefixSum)):
             sums += prefixSum[idx]
             prefixSum[idx] = sums
             
