@@ -5,10 +5,7 @@ class Solution:
         
         s[left], s[right] = s[right], s[left]
         
-        left += 1
-        right -= 1
-        
-        ans = self.reverseFunction(s, left, right)
+        ans = self.reverseFunction(s, left+1, right-1)
         return ans
     
     def reverseString(self, s: List[str]) -> None:
