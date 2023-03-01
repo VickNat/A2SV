@@ -4,18 +4,19 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    def reverse(self, curNode, pNode):
+        if not curNode:
+            return pNode
+        
+        nNode = curNode.next
+        curNode.next = pNode
+        
+        return self.reverse(nNode, curNode)
+    
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         pNode = None
-        curNode = head
-        nNode = None
         
-        while curNode:
-            nNode = curNode.next
-            curNode.next = pNode
-            pNode = curNode
-            curNode = nNode
-                    
-        return pNode
+        return self.reverse(head, pNode)
         
 
                 
