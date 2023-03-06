@@ -9,9 +9,7 @@ class Solution:
         optLeft = nums[left] - opt1
         optRight = nums[right] - opt2
 
-        if optLeft > optRight:
-            return optLeft
-        return optRight
+        return max(optLeft, optRight)
 
 
     def PredictTheWinner(self, nums: List[int]) -> bool:
