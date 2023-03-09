@@ -4,7 +4,7 @@ class Solution:
         children = [0]*k
         cookies.sort(reverse=True)
 
-        def distributer(i, children):
+        def backtrack(i, children):
             if i >= len(cookies):
                 self.minimum = min(self.minimum, max(children))
                 return 
@@ -14,8 +14,8 @@ class Solution:
 
             for j in range(k):
                 children[j] += cookies[i]
-                distributer(i+1, children)
+                backtrack(i+1, children)
                 children[j] -= cookies[i]
             
-        distributer(0, children)
+        backtrack(0, children)
         return self.minimum
