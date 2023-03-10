@@ -20,5 +20,5 @@ class Solution:
         return root1
 
     def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
-        root1 = self.merger(root1, root2)
-        return root1
+        ans = self.merger(root1, root2)
+        return ans
