@@ -1,6 +1,5 @@
 class Solution:
     def balancedString(self, s: str) -> int:
-        import math
         freq = [0] * 26
         N = len(s)
         check = N // 4
