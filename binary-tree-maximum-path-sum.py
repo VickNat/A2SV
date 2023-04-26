@@ -8,23 +8,20 @@ class Solution:
     def __init__(self):
         self.pathSum = -float('inf')
 
-    def pathFinder(self, root):
+    def dfs(self, root):
         if not root:
             return 0
-        if not root.left and not root.right:
-            self.pathSum = max(self.pathSum, root.val)
-            return root.val
+        
+        left = self.dfs(root.left)
+        right = self.dfs(root.right)
 
-        left = self.pathFinder(root.left)
-        right = self.pathFinder(root.right)
+        leftPath = root.val + left
+        rightPath = root.val + right
+        path = left + right + root.val
 
-        self.pathSum = max(self.pathSum, left+root.val, right+root.val)
-
-        temp = left + right + root.val
-        self.pathSum = max(self.pathSum, temp)
-
-        return max(left+root.val, right+root.val)
+        self.pathSum = max(self.pathSum, leftPath, rightPath, path, root.val)
+        return max(leftPath, rightPath, root.val)
 
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.pathFinder(root)
+        self.dfs(root)
         return self.pathSum
