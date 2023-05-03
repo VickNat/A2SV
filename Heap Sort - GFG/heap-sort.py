@@ -28,7 +28,6 @@ class Solution:
     def HeapSort(self, arr, n):
         #code here
         self.buildHeap(arr, n)
-        
         for idx in range(n-1, -1, -1):
             arr[0], arr[idx] = arr[idx], arr[0]
             self.heapify(arr, idx, 0)
