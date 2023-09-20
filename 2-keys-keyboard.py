@@ -1,16 +1,26 @@
 class Solution:
     def minSteps(self, n: int) -> int:
-        primeFactor = []
-        d = 2
-        
-        while d*d <= n:
-            while n%d == 0:
-                primeFactor.append(d)
-                n //= d
+        memo = defaultdict(int)
+
+        def dp(curStr, copied):
+            if len(curStr) == n:
+                return 1
+
+            if len(curStr) > n:
+                return float('inf')
+
+            if (curStr, copied) in memo:
+                return memo[(curStr, copied)]
             
-            d += 1
+            minOperation = float('inf')
+
+            if len(curStr) == len(copied):
+                minOperation = dp(curStr+copied, copied)
+            else:
+                minOperation = min(dp(curStr+copied, copied), dp(curStr, curStr))
+
+            memo[(curStr, copied)] = minOperation+1
+            return minOperation+1
         
-        if n > 1:
-            primeFactor.append(n)
-        
-        return sum(primeFactor)
+        ans = dp("A", "A")
+        return ans if ans > 1 else 0
