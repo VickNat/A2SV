@@ -2,16 +2,16 @@ class Solution:
     def lastStoneWeightII(self, stones: List[int]) -> int:
         memo = defaultdict(int)
 
-        def dfs(idx, curStones):
-            if idx == len(stones):
+        def dp(i, curStones):
+            if i == len(stones):
                 return abs(curStones)
+            
+            if (i, curStones) in memo:
+                return memo[(i, curStones)]
+            
+            minWeight = min(dp(i+1, curStones+stones[i]), dp(i+1, curStones-stones[i]))
 
-            if (idx, curStones) in memo:
-                return memo[(idx, curStones)]
-
-            minWeight = min(dfs(idx+1, curStones+stones[idx]), dfs(idx+1, curStones-stones[idx]))
-
-            memo[(idx, curStones)] = minWeight
+            memo[(i, curStones)] = minWeight
             return minWeight
         
-        return dfs(0, 0)
+        return dp(0, 0)
