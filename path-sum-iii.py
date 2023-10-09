@@ -10,27 +10,24 @@ class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         counts = 0
 
-        
-        def traverse(root, prefixSum):
+        def dfs(node, prefixSum):
             nonlocal counts
-            if not root:
+            if not node:
                 return
-            
-            ptr = len(prefixSum)-1
+                        
+            last = len(prefixSum)-1
 
-            for j in range(len(prefixSum)-2, -1, -1):
-                val = prefixSum[ptr] - prefixSum[j] + root.val
+            for i in range(len(prefixSum)-2, -1, -1):
+                val = prefixSum[last]-prefixSum[i]+node.val
 
                 if val == targetSum:
                     counts += 1
             
-            if root.val == targetSum:
+            if node.val == targetSum:
                 counts += 1
 
-            prefixSum.append(prefixSum[-1]+root.val)
-            traverse(root.left, prefixSum)
-            traverse(root.right, prefixSum)
-            prefixSum.pop()
-
-        traverse(root, [0])
+            dfs(node.left, prefixSum[:]+[prefixSum[-1]+node.val])
+            dfs(node.right, prefixSum[:]+[prefixSum[-1]+node.val])
+        
+        dfs(root, [0])
         return counts
