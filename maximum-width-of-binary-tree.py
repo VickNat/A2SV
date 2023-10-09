@@ -6,26 +6,25 @@
 #         self.right = right
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        kCount = defaultdict(list)
-        maxWidth = -1
-        root.val == 1
-        
-        def order(root, h):
-            nonlocal maxWidth
-            if not root:
+        nodeCounts = defaultdict(list)
+        max_ = -1
+
+        def dfs(node, h):
+            if not node:
                 return
-            if root.left:
-                root.left.val = 2*root.val
-            if root.right:
-                root.right.val = (2*root.val)+1
-
-            kCount[h].append(root.val)
-            order(root.left, h+1)
-            order(root.right, h+1)
-
-        order(root, 0)
-
-        for value in kCount.values():
-            maxWidth = max(maxWidth, value[-1]-value[0]+1)
+            if node.left:
+                node.left.val = 2 * node.val
+            if node.right:
+                node.right.val = 2 * node.val + 1
             
-        return maxWidth
+            nodeCounts[h].append(node.val)
+            dfs(node.left, h+1)
+            dfs(node.right, h+1)
+        
+        root.val = 1
+        dfs(root, 0)
+
+        for key, val in nodeCounts.items():
+            max_ = max(max_, val[-1]-val[0])
+        
+        return max_+1
