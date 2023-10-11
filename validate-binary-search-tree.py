@@ -5,24 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isBst(self, root):
-        if not root:
-            return []
-        
-
-        left = self.isBst(root.left)
-        right = self.isBst(root.right)
-        
-        ans = []
-        ans.extend(left)
-        ans.append(root.val)
-        ans.extend(right)
-
-        return ans
-
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        bst = self.isBst(root)
-        check = set(sorted(bst))
-        check = list(check)
-        check.sort()
-        return bst == check
+        
+        def dfs(node):           
+            ans = []
+            
+            if node.left:
+                ans += dfs(node.left)
+            
+            ans += [node.val]
+
+            if node.right:
+                ans += dfs(node.right)
+            
+            return ans
+        
+        ans = dfs(root)
+        comp = sorted(ans)
+
+        if len(set(ans)) != len(ans):
+            return False
+        return ans[:] == comp[:]
