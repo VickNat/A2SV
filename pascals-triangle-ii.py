@@ -13,8 +13,7 @@ class Solution:
             temp[ptr] = ans[ptr-1] + ans[ptr]
             ptr += 1
         
-        temp[0] = 1
-        temp[-1] = 1
+        temp[0] = temp[-1] = 1
         ans = temp
 
         return ans
